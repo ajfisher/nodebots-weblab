@@ -13,9 +13,9 @@ j5.serial = SerialPort;
 j5.events = new EventEmitter();
 j5.port = undefined;
 
-j5.runSerial = function (button, opts = {}) {
-  button.addEventListener("click", async (evt) => {
-    console.log("Authorising");
+j5.runSerial = function(button, opts = {}) {
+  button.addEventListener('click', async(evt) => {
+    console.log('Authorising');
     const serial = new j5.serial(opts);
     j5.port = serial;
     // emit the serial object.

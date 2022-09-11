@@ -35,7 +35,7 @@ class SerialPort extends EventEmitter {
       })
       .then(() => this.writer = this.port.writable.getWriter())
       .then(() => this.reader = this.port.readable.getReader())
-      .then(async () => {
+      .then(async() => {
         this.emit('open');
         this.isOpen = true;
         callback(null);
@@ -108,7 +108,7 @@ class SerialPort extends EventEmitter {
 
   // TODO: is this correct?
   flush(callback) {
-    //this.port.flush(); // is this sync or a promise?
+    // this.port.flush(); // is this sync or a promise?
     console.warn('flush method is a NOP right now');
     if (callback) return callback(null);
   }
