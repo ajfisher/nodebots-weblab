@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <link href="labs.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div>
+      <h1>Blink Demo</h1>
+      <p>Connect to the microcontroller and blink pin 13</p>
+      <div>
+        <textarea id="code">
+        board.on('ready', () => {
+          const led = new five.Led(13);
+          led.blink(3000);
+        });
+        </textarea>
+      </div>
+      <iframe src="j5.html"/>
+    </div>
+  </body>
+</html>
