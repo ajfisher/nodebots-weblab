@@ -1,18 +1,49 @@
 <html>
   <head>
+    <link href="reset.css" rel="stylesheet"/>
     <link href="labs.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="/labs/plugins/highlight.min.css">
+    <script src="/labs/plugins/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/labs/plugins/code-input.min.css">
+    <script src="/labs/plugins/code-input.min.js"></script>
+    <script src="/labs/plugins/indent.min.js"></script>
+
+    <script>
+      codeInput.registerTemplate("syntax-highlighted",
+        codeInput.templates.hljs(
+          hljs,
+          [
+            // new codeInput.plugins.Autodetect(),
+            new codeInput.plugins.Indent()
+          ]
+        )
+      );
+    </script>
+    <script>
+      // load the code for the example
+      document.addEventListener('DOMContentLoaded', (event) => {
+
+        const democode =
+`board.on('ready', () => {
+  const led = new five.Led(13);
+  led.blink(3000);
+});`;
+
+        document.getElementById('code').value = democode;
+      });
+
+    </script>
   </head>
   <body>
     <div>
       <h1>Blink Demo</h1>
       <p>Connect to the microcontroller and blink pin 13</p>
-      <div>
-        <textarea id="code">
-        board.on('ready', () => {
-          const led = new five.Led(13);
-          led.blink(3000);
-        });
-        </textarea>
+      <div class="code_container">
+        <code-input lang="javascript" placeholder="Type code here" id="code"
+          template="syntax-highlighted">
+        </code-input>
       </div>
       <iframe src="j5.html"/>
     </div>
