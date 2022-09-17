@@ -1,17 +1,177 @@
-button#runserial {
-  display: visible;
-  background-color: #0a0a23;
-  color: white;
-  border: none;
+:root {
+    --dark: #333;
+    --light: #fff;
+    --yellow: #fedd00;
+    --panel-grey: #F4F4F4;
+    --background-colour: var(--light);
+    --dark-text-colour: var(--dark);
+    --light-text-colour: var(--light);
+    --highlight-colour: var(--yellow);
+    --hover-colour: var(--panel-grey);
+    --gutter-small: 1rem;
+    --gutter-medium: 2rem;
+    --gutter-large: 3rem;
 }
 
-iframe {
-  width: 100%;
-  height: 2em;
-  border: none;
+
+html {
+    font-size: 62.5%;
+    line-height: 1.4;
 }
 
-div.code_container code-input pre {
+body {
+    font-feature-settings: "kern","liga","clig","calt";
+    color: var(--dark-text-colour);
+    background-color: var(--background-colour);
+    font: 2.4rem Helvetica,Arial,sans;
+    font-kerning: normal;
+}
+
+body.interface {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap
+}
+
+h1, h2, h3 {
+    font-family: Impact;
+    display: inline-block;
+    background: var(--highlight-colour);
+    color: var(--dark-text-colour);
+}
+
+h1 {
+    font-size: 4rem;
+    padding: var(--gutter-small) var(--gutter-medium);
+}
+
+h2 {
+    font-size: 3rem;
+    padding: var(--gutter-small) var(--gutter-medium);
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+pre, code-input {
+    font-family: monaco;
+    font-size: 2rem;
+}
+
+header {
+    flex: 1 1 100%;
+    height: 10vh;
+    background: #222 url(images/header-pattern.svg);
+    padding: var(--gutter-small) var(--gutter-medium);
+}
+
+header h1 {
+}
+
+workspace, labs {
+    flex: 1 1 50%;
+    height: 85vh;
+    padding: var(--gutter-medium);
+}
+
+workspace {
+}
+
+workspace code-input {
+    margin: 0;
+}
+
+labs {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+labs nav {
+    min-height: 5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 0;
+}
+
+labs nav button {
+    font-family: impact;
+    font-size: 2.5rem;
+    padding: var(--gutter-medium);
+    background-color: var(--highlight-colour);
+}
+
+labs nav button:hover {
+    color: var(--hover-colour);
+}
+
+labs lab {
+    overflow: scroll;
+    display: none;
+}
+
+labs lab.activelab {
+    display: block;
+}
+
+lab section {
+    margin: var(--gutter-medium);
+    font-size: 2rem;
+}
+
+lab section p {
+    margin: var(--gutter-small) 0;
+}
+
+labs pre {
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+labs pre democode {
+    display: block;
+    padding: var(--gutter-medium);
+}
+
+workspace div.code_container {
+    height: 80%;
+}
+
+workspace div.code_container code-input {
+    height: 100%;
+}
+
+workspace div.code_container code-input pre {
     width: 100%;
     height: 100%;
+}
+
+workspace iframe {
+    width: 100%;
+    height: 2em;
+    border: none;
+}
+
+button#runserial {
+    display: visible;
+    background-color: #0a0a23;
+    color: white;
+    border: none;
+}
+
+footer {
+    flex: 1 1 100%;
+    height: 5vh;
+    background-color: var(--dark);
+    color: var(--light);
+    padding: var(--gutter-medium);
+    text-align: center;
+}
+
+footer p {
+    font-size: 1.5rem;
 }

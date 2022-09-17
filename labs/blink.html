@@ -3,13 +3,13 @@
     <link href="reset.css" rel="stylesheet"/>
     <link href="labs.css" rel="stylesheet"/>
 
+
     <link rel="stylesheet" href="/labs/plugins/highlight.min.css">
     <script src="/labs/plugins/highlight.min.js"></script>
 
     <link rel="stylesheet" href="/labs/plugins/code-input.min.css">
     <script src="/labs/plugins/code-input.min.js"></script>
     <script src="/labs/plugins/indent.min.js"></script>
-
     <script>
       codeInput.registerTemplate("syntax-highlighted",
         codeInput.templates.hljs(
@@ -22,30 +22,89 @@
       );
     </script>
     <script>
-      // load the code for the example
+      // set up the page when it's loaded to get everything going
       document.addEventListener('DOMContentLoaded', (event) => {
 
-        const democode =
-`board.on('ready', () => {
-  const led = new five.Led(13);
-  led.blink(3000);
-});`;
+        const democode = document.querySelector('lab.activelab * democode').innerText;
 
         document.getElementById('code').value = democode;
-      });
 
+        document.querySelectorAll('pre democode').forEach((el) => {
+          hljs.highlightElement(el);
+        });
+      });
     </script>
   </head>
-  <body>
-    <div>
-      <h1>Blink Demo</h1>
-      <p>Connect to the microcontroller and blink pin 13</p>
+  <body class="interface">
+    <header>
+      <h1>NodeBots Web Labs</h1>
+    </header>
+    <workspace>
       <div class="code_container">
         <code-input lang="javascript" placeholder="Type code here" id="code"
           template="syntax-highlighted">
         </code-input>
       </div>
-      <iframe src="j5.html"/>
-    </div>
+      <iframe src="j5.html" width="100%" height="100px"></iframe>
+    </workspace>
+    <labs>
+      <lab class="activelab">
+        <h2>1. Hello, World - Blink an LED</h2>
+        <section>
+          <p>Make an LED flash on and off using a timer</p>
+          <p><img src="http://johnny-five.io/img/breadboard/led-13.png" height="300px"/></p>
+        </section>
+        <div>
+          <pre><democode id="demo_code_1">
+board.on('ready', () => {
+  const led = new five.Led(13);
+  led.blink(3000);
+});
+          </democode></pre>
+        </div>
+      </lab>
+      <lab>
+        <h2>2. Hello, World - Blink an LED</h2>
+        <section>
+          <p>Make an LED flash on and off using a timer</p>
+          <p><img src="http://johnny-five.io/img/breadboard/led-13.png" height="300px"/></p>
+        </section>
+        <div>
+          <pre><democode id="demo_code_1">
+board.on('ready', () => {
+  const led = new five.Led(13);
+  led.blink(3000);
+});
+          </democode></pre>
+        </div>
+      </lab>
+      <lab>
+        <h2>3. Hello, World - Blink an LED</h2>
+        <section>
+          <p>Make an LED flash on and off using a timer</p>
+          <p><img src="http://johnny-five.io/img/breadboard/led-13.png" height="300px"/></p>
+        </section>
+        <div>
+          <pre><democode id="demo_code_1">
+board.on('ready', () => {
+  const led = new five.Led(13);
+  led.blink(3000);
+});
+          </democode></pre>
+        </div>
+      </lab>
+      <nav>
+        <button>&lt; Prev</button>
+        <button
+          onclick="document.getElementById('code').value = document.getElementById('demo_code_1').innerText"
+        >Load Code</button>
+        <button>Next &gt;</button>
+      </nav>
+    </labs>
+    <footer>
+      <p>Designed by <a href="https://github.com/ajfisher">@ajfisher</a> with
+      assistance by <a href="https://github.com/monteslu">@monteslu</a> see
+      github.com/ajfisher/nodebots-weblab for more info</p>
+    </footer>
   </body>
 </html>
