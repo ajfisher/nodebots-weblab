@@ -56,7 +56,7 @@ h3 {
 }
 
 pre, code-input {
-    font-family: monaco;
+    font-family: monaco, monospace;
     font-size: 2rem;
 }
 
@@ -118,7 +118,7 @@ nav button#runserial:hover {
 }
 
 labs lab {
-    overflow: scroll;
+    overflow: auto;
     display: none;
 }
 
