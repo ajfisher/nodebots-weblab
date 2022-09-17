@@ -120,6 +120,7 @@ nav button#runserial:hover {
 labs lab {
     overflow: auto;
     display: none;
+    height: 85%;
 }
 
 labs lab.active {

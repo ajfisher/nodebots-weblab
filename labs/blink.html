@@ -62,7 +62,7 @@
         <h2>1. Hello, World - Blink an LED</h2>
         <section>
           <p>Make an LED flash on and off using a timer</p>
-          <p><img src="http://johnny-five.io/img/breadboard/led-13.png" height="300px"/></p>
+          <p><img src="images/led-13.png" height="300px"/></p>
         </section>
         <div>
           <pre><democode>
@@ -74,16 +74,21 @@ board.on('ready', () => {
         </div>
       </lab>
       <lab>
-        <h2>2. Hello, World - Blink an LED</h2>
+        <h2>2. Fade an LED</h2>
         <section>
-          <p>Make an LED flash on and off using a timer</p>
-          <p><img src="http://johnny-five.io/img/breadboard/led-13.png" height="300px"/></p>
+          <p>Make an LED fade in and out using a timer</p>
+          <p><img src="images/led-11-pwm.png" height="300px"/></p>
         </section>
         <div>
           <pre><democode>
 board.on('ready', () => {
   const led = new five.Led(13);
-  led.blink(2000);
+  led.fadeIn();
+
+  // Toggle the led after 5 seconds (shown in ms)
+  board.wait(5000, () => {
+    led.fadeOut();
+  });
 });
           </democode></pre>
         </div>
@@ -92,13 +97,13 @@ board.on('ready', () => {
         <h2>3. Hello, World - Blink an LED</h2>
         <section>
           <p>Make an LED flash on and off using a timer</p>
-          <p><img src="http://johnny-five.io/img/breadboard/led-13.png" height="300px"/></p>
+          <p><img src="images/led-13.png" height="300px"/></p>
         </section>
         <div>
           <pre><democode>
 board.on('ready', () => {
   const led = new five.Led(13);
-  led.blink(3000);
+  led.blink(2000);
 });
           </democode></pre>
         </div>
