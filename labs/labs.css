@@ -3,6 +3,7 @@
     --light: #fff;
     --yellow: #fedd00;
     --panel-grey: #F4F4F4;
+    --glossy-black: #0a0a23;
     --background-colour: var(--light);
     --dark-text-colour: var(--dark);
     --light-text-colour: var(--light);
@@ -75,9 +76,6 @@ workspace, labs {
     padding: var(--gutter-medium);
 }
 
-workspace {
-}
-
 workspace code-input {
     margin: 0;
 }
@@ -89,8 +87,7 @@ labs {
     justify-content: space-between;
 }
 
-labs nav {
-    min-height: 5rem;
+nav {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -98,16 +95,26 @@ labs nav {
     padding: 0;
 }
 
-labs nav button {
+nav button {
     font-family: impact;
     font-size: 2.5rem;
     padding: var(--gutter-medium);
     background-color: var(--highlight-colour);
-    transition: color 2s;
+    transition: color 1s;
 }
 
-labs nav button:hover {
+nav button:hover {
     color: var(--hover-colour);
+}
+
+nav button#runserial {
+    display: visible;
+    background-color: var(--glossy-black);
+    color: var(--light-text-colour);
+}
+
+nav button#runserial:hover {
+    color: var(--highlight-colour);
 }
 
 labs lab {
@@ -138,8 +145,15 @@ labs pre democode {
     padding: var(--gutter-medium);
 }
 
+workspace {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 workspace div.code_container {
-    height: 80%;
+    height: 70vh;
 }
 
 workspace div.code_container code-input {
@@ -153,16 +167,10 @@ workspace div.code_container code-input pre {
 
 workspace iframe {
     width: 100%;
-    height: 2em;
     border: none;
+    height: 8vh;
 }
 
-button#runserial {
-    display: visible;
-    background-color: #0a0a23;
-    color: white;
-    border: none;
-}
 
 footer {
     flex: 1 1 100%;
@@ -175,4 +183,9 @@ footer {
 
 footer p {
     font-size: 1.5rem;
+}
+
+body.j5controls nav {
+    padding-top: 0.5rem;
+    padding-right: var(--gutter-medium);
 }

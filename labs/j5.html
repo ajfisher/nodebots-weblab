@@ -1,5 +1,7 @@
 <html>
   <head>
+    <link href="reset.css" rel="stylesheet"/>
+    <link href="labs.css" rel="stylesheet"/>
     <script type="module">
       import j5 from '/dist/webj5.js';
       // make j5 a global
@@ -22,9 +24,12 @@
             board = new five.Board({io, repl: false, timeout: 15000});
             port.emit('open', port);
             console.log('Code Running');
+
             const js_string = window.parent.document.getElementById('code').value;
             console.log(js_string);
             eval(js_string);
+
+            document.getElementById('runserial').innerText = "Running..."
           }
         });
       });
@@ -37,10 +42,11 @@
       }, false);
 
     </script>
-    <link href="labs.css" rel="stylesheet"/>
   </head>
-  <body>
-    <button id="runserial">Connect and run code</button>
-    <button id="stopserial">Stop code</button>
+  <body class="j5controls">
+    <nav>
+      <button id="runserial">Connect and run code</button>
+      <button id="stopserial">Stop code</button>
+    </nav>
   </body>
 </html>
