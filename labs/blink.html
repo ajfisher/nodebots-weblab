@@ -82,7 +82,7 @@ board.on('ready', () => {
         <div>
           <pre><democode>
 board.on('ready', () => {
-  const led = new five.Led(13);
+  const led = new five.Led(11);
   led.fadeIn();
 
   // Toggle the led after 5 seconds (shown in ms)
@@ -94,16 +94,21 @@ board.on('ready', () => {
         </div>
       </lab>
       <lab>
-        <h2>3. Hello, World - Blink an LED</h2>
+        <h2>3. Blink many LEDs</h2>
         <section>
-          <p>Make an LED flash on and off using a timer</p>
+          <p>Blink multiple LEDs at once</p>
           <p><img src="images/led-13.png" height="300px"/></p>
         </section>
         <div>
           <pre><democode>
 board.on('ready', () => {
-  const led = new five.Led(13);
-  led.blink(2000);
+  const led1 = new five.Led(13);
+  const led2 = new five.Led(12);
+  const led3 = new five.Led(11);
+
+  led1.blink(500);
+  led2.blink(800);
+  led3.blink(1000);
 });
           </democode></pre>
         </div>
