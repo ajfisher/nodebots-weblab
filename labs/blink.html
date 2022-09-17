@@ -21,17 +21,25 @@
         )
       );
     </script>
-    <script>
+    <script type="module" src="labs.js"></script>
+    <script type="module">
+      import LabPicker from './labs.js';
       // set up the page when it's loaded to get everything going
       document.addEventListener('DOMContentLoaded', (event) => {
-
-        const democode = document.querySelector('lab.activelab * democode').innerText;
-
-        document.getElementById('code').value = democode;
 
         document.querySelectorAll('pre democode').forEach((el) => {
           hljs.highlightElement(el);
         });
+
+        const labpicker = new LabPicker({
+          labs: document.querySelectorAll('lab'),
+          nextElement: document.getElementById('next'),
+          previousElement: document.getElementById('prev'),
+          loadElement: document.getElementById('load'),
+        });
+
+        labpicker.load();
+
       });
     </script>
   </head>
@@ -48,17 +56,17 @@
       <iframe src="j5.html" width="100%" height="100px"></iframe>
     </workspace>
     <labs>
-      <lab class="activelab">
+      <lab class="active">
         <h2>1. Hello, World - Blink an LED</h2>
         <section>
           <p>Make an LED flash on and off using a timer</p>
           <p><img src="http://johnny-five.io/img/breadboard/led-13.png" height="300px"/></p>
         </section>
         <div>
-          <pre><democode id="demo_code_1">
+          <pre><democode>
 board.on('ready', () => {
   const led = new five.Led(13);
-  led.blink(3000);
+  led.blink(1000);
 });
           </democode></pre>
         </div>
@@ -70,10 +78,10 @@ board.on('ready', () => {
           <p><img src="http://johnny-five.io/img/breadboard/led-13.png" height="300px"/></p>
         </section>
         <div>
-          <pre><democode id="demo_code_1">
+          <pre><democode>
 board.on('ready', () => {
   const led = new five.Led(13);
-  led.blink(3000);
+  led.blink(2000);
 });
           </democode></pre>
         </div>
@@ -85,7 +93,7 @@ board.on('ready', () => {
           <p><img src="http://johnny-five.io/img/breadboard/led-13.png" height="300px"/></p>
         </section>
         <div>
-          <pre><democode id="demo_code_1">
+          <pre><democode>
 board.on('ready', () => {
   const led = new five.Led(13);
   led.blink(3000);
@@ -94,11 +102,9 @@ board.on('ready', () => {
         </div>
       </lab>
       <nav>
-        <button>&lt; Prev</button>
-        <button
-          onclick="document.getElementById('code').value = document.getElementById('demo_code_1').innerText"
-        >Load Code</button>
-        <button>Next &gt;</button>
+        <button id="prev">&lt; Prev</button>
+        <button id="load">Load Code</button>
+        <button id="next">Next &gt;</button>
       </nav>
     </labs>
     <footer>
