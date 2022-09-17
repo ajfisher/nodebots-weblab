@@ -74,27 +74,7 @@ board.on('ready', () => {
         </div>
       </lab>
       <lab>
-        <h2>2. Fade an LED</h2>
-        <section>
-          <p>Make an LED fade in and out using a timer</p>
-          <p><img src="images/led-11-pwm.png" height="300px"/></p>
-        </section>
-        <div>
-          <pre><democode>
-board.on('ready', () => {
-  const led = new five.Led(11);
-  led.fadeIn();
-
-  // Toggle the led after 5 seconds (shown in ms)
-  board.wait(5000, () => {
-    led.fadeOut();
-  });
-});
-          </democode></pre>
-        </div>
-      </lab>
-      <lab>
-        <h2>3. Blink many LEDs</h2>
+        <h2>2. Blink many LEDs</h2>
         <section>
           <p>Blink multiple LEDs at once</p>
           <p><img src="images/led-13.png" height="300px"/></p>
@@ -109,6 +89,21 @@ board.on('ready', () => {
   led1.blink(500);
   led2.blink(800);
   led3.blink(1000);
+});
+          </democode></pre>
+        </div>
+      </lab>
+      <lab>
+        <h2>3. Make a servo move</h2>
+        <section>
+          <p>Make a servo move back and forth</p>
+          <p><img src="images/servo.png" height="300px"/></p>
+        </section>
+        <div>
+          <pre><democode>
+board.on('ready', () => {
+  const servo = new five.Servo(10);
+  servo.sweep();
 });
           </democode></pre>
         </div>
